@@ -10,6 +10,7 @@ gem 'dotenv'
 gem 'httparty'
 gem 'json'
 gem 'debugger'
+gem 'gon-sinatra'
 
 gem 'barista'
 gem 'rack-coffee', :require => "rack/coffee"
