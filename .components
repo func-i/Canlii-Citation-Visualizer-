@@ -1,0 +1,9 @@
+---
+:orm: none
+:test: none
+:mock: none
+:script: none
+:renderer: erb
+:stylesheet: scss
+:namespace: CaseNetwork
+:migration_format: number
