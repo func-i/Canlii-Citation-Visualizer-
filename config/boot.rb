@@ -10,6 +10,11 @@ Bundler.require(:default, PADRINO_ENV)
 require 'dotenv'
 Dotenv.load('.env')
 
+# Barista (for CoffeeScript Support)
+Barista.root        = File.join(Barista.app_root , 'coffeescripts')
+Barista.output_root = File.join(Barista.app_root , 'public/javascripts')
+Barista.configure
+
 ##
 # ## Enable devel logging
 #
@@ -43,6 +48,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  Barista.compile_all!
 end
 
 Padrino.load!

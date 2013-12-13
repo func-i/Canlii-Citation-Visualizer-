@@ -6,19 +6,8 @@ CaseNetwork::App.controllers :cases do
     render 'cases/index'
   end
 
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
+  # get :index, :map => '/application.js' do
+  #   coffee :application
   # end
-
-  # get :foo, :with => :id do
-  #   'Maps to url '/foo/#{params[:id]}''
-  # end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
-
 
 end
