@@ -5,6 +5,7 @@ svg {
   font-family: helvetica, sans-serif;
 }
 
-path, line {
-  stroke: #777;
+path, line, rect {
+  stroke: #2A2F36;
+  fill: #2A2F36;
 }
