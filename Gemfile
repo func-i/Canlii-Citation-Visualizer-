@@ -11,6 +11,7 @@ gem 'httparty'
 gem 'json'
 gem 'debugger'
 gem 'gon-sinatra'
+gem 'pry'
 
 gem 'barista'
 gem 'rack-coffee', :require => "rack/coffee"

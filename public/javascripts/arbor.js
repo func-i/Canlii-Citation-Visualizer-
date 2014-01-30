@@ -4,7 +4,7 @@
 //
 //  Copyright (c) 2011 Samizdat Drafting Co.
 //  Physics code derived from springy.js, copyright (c) 2010 Dennis Hotson
-// 
+//
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
 //  files (the "Software"), to deal in the Software without
@@ -13,10 +13,10 @@
 //  copies of the Software, and to permit persons to whom the
 //  Software is furnished to do so, subject to the following
 //  conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be
 //  included in all copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 //  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 //  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -50,7 +50,7 @@
     Point:function(x, y){ return new Point(x, y) },
 
     // immutable object with useful methods
-    etc:{      
+    etc:{
       trace:trace,              // ƒ(msg) -> safe console logging
       dirname:dirname,          // ƒ(path) -> leading part of path
       basename:basename,        // ƒ(path) -> trailing part of path
@@ -63,5 +63,5 @@
       arbor_path:arbor_path,    // ƒ() -> guess the directory of the lib code
     }
   })
-  
+
 })(this.jQuery)

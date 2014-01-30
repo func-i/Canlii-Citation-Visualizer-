@@ -1,34 +1,3 @@
-<h1>CURSE YOU RAPTOR JESUS</h1>
+<h1>CanLii Network Graph</h1>
 
-<div id="viz"></div>
-
-<script type="text/javascript">
-    var container = document.getElementById('viz');
-
-    var nodes = gon.nodes;
-    var edges = gon.edges;
-
-    var data = {
-        nodes: nodes,
-        edges: edges,
-    };
-
-    var options = {
-      width: '100%',
-      height: '100%',
-      nodes: {
-        shape: 'box'
-      },
-      edges: {
-        length: 125
-      }
-
-    };
-
-    var graph = new vis.Graph(container, data, options);
-</script>
-
-<hr>
-<%= @nodes %>
-<hr>
-<%= @edges %>
+<p><%= @tree_hash %></p>

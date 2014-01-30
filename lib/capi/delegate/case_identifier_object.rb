@@ -1,5 +1,4 @@
 class CaseIdentifier
-
   attr_reader :database_id, :case_id
 
   def initialize(attributes)
