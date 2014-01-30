@@ -4,8 +4,6 @@ module CaseNetwork
     register Padrino::Mailer
     register Padrino::Helpers
     register Barista::Integration::Sinatra
-    register Gon::Sinatra
-
 
     enable :sessions
     enable :reload

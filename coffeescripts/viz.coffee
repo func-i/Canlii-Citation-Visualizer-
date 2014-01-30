@@ -1,6 +1,8 @@
-# D3 Tree 
+# D3 Tree
 
 # Copyright 2013 Peter Cook (@prcweb); Licensed MIT
+
+hardcoded = {"id":"2011scc47","dbId":"csc-scc","title":"Crookes v. Newton","href":"http://canlii.ca/t/fngpv","date":"2011-10-19","cited_by":[{"title":"Carter v. B.C. Federation of Foster Parents Assn.","id":"2005bcca398","dbId":"bcca","href":"http://canlii.ca/t/1l9lv","date":"2005-08-03"},{"title":"Crookes v. Newton","id":"2009bcca392","dbId":"bcca","href":"http://canlii.ca/t/25md2","date":"2009-09-15"},{"title":"Crookes v. Wikimedia Foundation Inc.","id":"2008bcsc1424","dbId":"bcsc","href":"http://canlii.ca/t/21b1z","date":"2008-10-27"},{"title":"Smith v. Matsqui (Dist.)","id":"1986canlii1117","dbId":"bcsc","href":"http://canlii.ca/t/216lx","date":"1986-07-17"},{"title":"Stanley v. Shaw and Tracey","id":"2006bcca467","dbId":"bcca","href":"http://canlii.ca/t/1pvw7","date":"2006-10-13"}],"citing_to":[{"title":"Kent v. Postmedia Network Inc.","id":"2012abqb559","dbId":"abqb","href":"http://canlii.ca/t/fsr1w","date":"2012-09-14"},{"title":"Laforest c. Collins","id":"2012qccs3078","dbId":"qccs","href":"http://canlii.ca/t/frz8g","date":"2012-06-28"},{"title":"Nazerali v. Mitchell","id":"2012bcsc205","dbId":"bcsc","href":"http://canlii.ca/t/fq19t","date":"2012-02-09"},{"title":"R. v. Smith","id":"2012onca892","dbId":"onca","href":"http://canlii.ca/t/fv9jn","date":"2012-12-18"},{"title":"Chayer c. Vaillancourt","id":"2012qccq1354","dbId":"qccq","href":"http://canlii.ca/t/fqdmc","date":"2012-02-13"}]}
 
 class @Kase
   constructor: (args) ->
@@ -24,8 +26,9 @@ $ ->
     x: -> ($('svg').width() / 2) - (@width / 2)
     y: -> ($('svg').height()) - (@height)
 
-  rawBaseKase = $('#chart').data('base-kase')
-  baseKase = new Kase(rawBaseKase)
+  # rawBaseKase = $('#chart').data('base-kase')
+  # baseKase = new Kase(rawBaseKase)
+  baseKase = new Kase(hardcoded)
   console.log baseKase
 
   d3Svg = d3.select("svg")
@@ -63,7 +66,7 @@ $ ->
 #   end = endPt(b)
 #   branches.push b
 #   return if b.d is maxDepth
-  
+
 #   # Left branch
 #   daR = ar * Math.random() - ar * 0.5
 #   newB =
@@ -76,7 +79,7 @@ $ ->
 #     parent: b.i
 
 #   branch newB
-  
+
 #   # Right branch
 #   daR = ar * Math.random() - ar * 0.5
 #   newB =
@@ -114,7 +117,7 @@ $ ->
 # highlightParents = (d) ->
 #   colour = (if d3.event.type is "mouseover" then "green" else "#777")
 #   depth = d.d
-  
+
 #   i = 0
 #   while i <= depth
 #     d3.select("#id-" + parseInt(d.i)).style "stroke", colour
