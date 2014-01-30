@@ -9,49 +9,18 @@ class @Kase
     @href          = args.href
     @date          = args.id
     @dbId          = args.dbId
-    @depth         = args.depth
+    @depth         = args.depth if args.depth
     # if root
     @citedById     = args.citedById if args.citedById
-    @citingToKases = args.citingToKases if args.citingToKases
+    @citingTo      = args.citing_to if args.citing_to
     # if branch
     @citingToId    = args.citingToId if args.citingToId
-    @citedByKases  = args.citedByKases if args.citedByKases
+    @citedTo       = args.cited_by if args.cited_by
 
-# exampleData
-
-kaseArgs =
-  id: "2938457"
-  title: "base kase"
-  href: "http://google.com"
-  date: "24-1-2013"
-  dbId: "fhfh2012fjfj"
-  citingToKases: []
-  citedByKases: []
-
-for i in [0..4]
-  citedByKaseArgs =
-    id: "citedByKase id ##{i}"
-    title: "citedByKase id ##{i}"
-    href: "http://google.com"
-    date: "21-11-1987"
-    dbId: "citedByKase dbId ##{i}"
-
-  citedByKase = new Kase(citedByKaseArgs)
-  kaseArgs.citedByKases.push citedByKase
-
-  citingToKaseArgs =
-    id: "citingToKase id ##{i+5}"
-    title: "citingToKase id ##{i+5}"
-    href: "http://google.com"
-    date: "21-11-1987"
-    dbId: "citingToKase dbId ##{i+5}"
-
-  citingToKase = new Kase(citingToKaseArgs)
-  kaseArgs.citingToKases.push citingToKase
-
-kase = new Kase(kaseArgs)
-
-console.log kase
+$ ->
+  rawBaseKase = $('#chart').data('base-kase')
+  baseKase = new Kase(rawBaseKase)
+  console.log baseKase
 
 branches = []
 

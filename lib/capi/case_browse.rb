@@ -31,6 +31,7 @@ module Capi
     end
 
     private
+
     def delegate_case_type(attributes)
       result = attributes.inject([]) do |obj, ele|
         obj << CaseIdentifier.new(ele)

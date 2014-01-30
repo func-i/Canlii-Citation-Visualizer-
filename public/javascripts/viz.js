@@ -1,5 +1,5 @@
 (function() {
-  var ar, branch, branches, citedByKase, citedByKaseArgs, citingToKase, citingToKaseArgs, create, da, dl, endPt, highlightParents, i, kase, kaseArgs, maxDepth, regenerate, seed, update, x1, x2, y1, y2, _i;
+  var ar, branch, branches, create, da, dl, endPt, highlightParents, maxDepth, regenerate, seed, update, x1, x2, y1, y2;
 
   this.Kase = (function() {
     function Kase(args) {
@@ -8,17 +8,20 @@
       this.href = args.href;
       this.date = args.id;
       this.dbId = args.dbId;
+      if (args.depth) {
+        this.depth = args.depth;
+      }
       if (args.citedById) {
         this.citedById = args.citedById;
       }
-      if (args.citingToKases) {
-        this.citingToKases = args.citingToKases;
+      if (args.citing_to) {
+        this.citingTo = args.citing_to;
       }
       if (args.citingToId) {
         this.citingToId = args.citingToId;
       }
-      if (args.citedByKases) {
-        this.citedByKases = args.citedByKases;
+      if (args.cited_by) {
+        this.citedTo = args.cited_by;
       }
     }
 
@@ -26,40 +29,12 @@
 
   })();
 
-  kaseArgs = {
-    id: "2938457",
-    title: "base kase",
-    href: "http://google.com",
-    date: "24-1-2013",
-    dbId: "fhfh2012fjfj",
-    citingToKases: [],
-    citedByKases: []
-  };
-
-  for (i = _i = 0; _i <= 4; i = ++_i) {
-    citedByKaseArgs = {
-      id: "citedByKase id #" + i,
-      title: "citedByKase id #" + i,
-      href: "http://google.com",
-      date: "21-11-1987",
-      dbId: "citedByKase dbId #" + i
-    };
-    citedByKase = new Kase(citedByKaseArgs);
-    kaseArgs.citedByKases.push(citedByKase);
-    citingToKaseArgs = {
-      id: "citingToKase id #" + (i + 5),
-      title: "citingToKase id #" + (i + 5),
-      href: "http://google.com",
-      date: "21-11-1987",
-      dbId: "citingToKase dbId #" + (i + 5)
-    };
-    citingToKase = new Kase(citingToKaseArgs);
-    kaseArgs.citingToKases.push(citingToKase);
-  }
-
-  kase = new Kase(kaseArgs);
-
-  console.log(kase);
+  $(function() {
+    var baseKase, rawBaseKase;
+    rawBaseKase = $('#chart').data('base-kase');
+    baseKase = new Kase(rawBaseKase);
+    return console.log(baseKase);
+  });
 
   branches = [];
 
@@ -148,7 +123,7 @@
   };
 
   highlightParents = function(d) {
-    var colour, depth, _results;
+    var colour, depth, i, _results;
     colour = (d3.event.type === "mouseover" ? "green" : "#777");
     depth = d.d;
     i = 0;
@@ -170,7 +145,7 @@
   };
 
   update = function() {
-    return d3.select("svg").selectAll("line").data(branches).transition().attr("x1", x1.attr("y1", y1.attr("x2", x2.attr("y2", y2))));
+    return d3.select("svg").selectAll("line").data(branches).transition().attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
   };
 
   d3.selectAll(".regenerate").on("click", regenerate);
