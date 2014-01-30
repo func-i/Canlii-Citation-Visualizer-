@@ -1,5 +1,10 @@
-#viz {
-  height: 720px;
-  width: 100%;
-  border: 1px solid black;
+/* SVG styling */
+svg {
+  width: 840px;
+  height: 600px;
+  font-family: helvetica, sans-serif;
+}
+
+path, line {
+  stroke: #777;
 }
