@@ -1,5 +1,11 @@
 <h1>CanLII</h1>
 
+<% form_tag '/', :class => 'scc-base', :method => 'post' do %>
+  <%= select_tag :case, :options => @case_names, :id => 'scc' %>
+  <%= submit_tag "Generate", class: "regenerate btn btn-xs" %>
+<% end %>
+
+
 <div data-base-kase='<%= @json_tree %>' id="chart">
   <svg></svg>
 </div>

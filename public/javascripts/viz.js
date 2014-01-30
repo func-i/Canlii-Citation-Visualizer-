@@ -105,6 +105,9 @@
 
   $(function() {
     var baseKase, d3Svg, trunk;
+    $('#scc').chosen({
+      width: '50%'
+    });
     trunk = {
       width: 50,
       height: 150,

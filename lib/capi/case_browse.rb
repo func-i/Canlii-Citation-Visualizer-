@@ -27,13 +27,28 @@ module Capi
     # => Fetches cases from database
     def get_case_list(database_id, params = {})
       cases = list_cases_in_db(database_id, params)
-      delegate_case_type(cases)
+      normalize_data(cases)
     end
 
     private
 
+    def normalize_data(cases)
+      cases.inject([]) do |acc, ele|
+        acc << normalize_element(ele)
+      end
+    end
+
+    def normalize_element(item)
+      {
+        "dbId"     => item["databaseId"],
+        "id"       => item["caseId"]["en"] || item["caseId"]["fr"],
+        "title"    => item["title"],
+        "citation" => item["citation"]
+      }
+    end
+
     def delegate_case_type(attributes)
-      result = attributes.inject([]) do |obj, ele|
+      attributes.inject([]) do |obj, ele|
         obj << CaseIdentifier.new(ele)
       end
     end

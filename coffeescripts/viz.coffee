@@ -20,6 +20,9 @@ class @Kase
     @citedToKases  = args.cited_by if args.cited_by
 
 $ ->
+  $('#scc').chosen
+    width: '50%',
+
   trunk =
     width: 50
     height: 150
