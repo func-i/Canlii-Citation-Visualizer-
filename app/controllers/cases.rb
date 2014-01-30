@@ -9,8 +9,9 @@ CaseNetwork::App.controllers :cases do
     citing_to  = settings.client.list_case_citations_tease(base_kase.dbId, base_kase.id)
     cited_by   = settings.client.list_cases_cited_tease(base_kase.dbId, base_kase.id)
 
-    @tree_hash = transform_to_json(base_kase, citing_to, cited_by)
-    gon.tree = @tree_hash
+    @hash_tree = transform_to_json(base_kase, citing_to, cited_by)
+    @json_tree = @hash_tree.to_json
+    gon.tree = @json_tree
     render 'cases/index'
   end
 
